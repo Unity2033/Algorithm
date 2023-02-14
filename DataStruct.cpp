@@ -8,33 +8,43 @@ struct Node
     Node * next;
 };
 
+void Insert(Node * target, int data)
+{
+    Node * newNode = new Node;
+    newNode->data = data;
+
+    newNode->next = target->next;
+
+    target->next = newNode;
+}
+
+void Delete(Node * target)
+{
+    Node* removePtr = target->next;
+    target->next = removePtr->next;
+
+    delete removePtr;
+}
+
 int main()
 {
-    Node * node = new Node;
+    Node * head = new Node;
 
-    Node * node1 = new Node;
-    node->next = node1;
-    node1->data = 10;
+    head->next = NULL;
 
-    Node * node2 = new Node;
-    node2->data = 20;
+    Insert(head, 10);
+    Insert(head, 20);
+    Insert(head, 30);
 
-    node1->next = node2;
+    Delete(head);
 
-    node2->next = NULL;
+    Node* curPtr = head->next;
 
-    // 리스트 순회
-    Node * currentNode = node->next;
-
-    while (currentNode != NULL)
+    while (curPtr != NULL)
     {
-        cout << currentNode->data << endl;
-        currentNode = currentNode->next;
+        cout << curPtr->data << endl;
+        curPtr = curPtr->next;
     }
-
-    delete node;
-    delete node1;
-    delete node2;
 
     return 0;
 }
