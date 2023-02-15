@@ -6,45 +6,49 @@ struct Node
 {
     int data;
     Node * next;
+    Node * prev;
 };
-
-void Insert(Node * target, int data)
-{
-    Node * newNode = new Node;
-    newNode->data = data;
-
-    newNode->next = target->next;
-
-    target->next = newNode;
-}
-
-void Delete(Node * target)
-{
-    Node* removePtr = target->next;
-    target->next = removePtr->next;
-
-    delete removePtr;
-}
 
 int main()
 {
     Node * head = new Node;
+    head->prev = NULL;
 
-    head->next = NULL;
+    Node * tail = new Node;
+    tail->next = NULL;
 
-    Insert(head, 10);
-    Insert(head, 20);
-    Insert(head, 30);
+    Node * node1 = new Node;
+    node1->data = 1000;
+    Node * node2 = new Node;
+    node2->data = 2000;
 
-    Delete(head);
+    head->next = node1;
 
-    Node* curPtr = head->next;
+    node1->prev = head;
+    node1->next = node2;
 
-    while (curPtr != NULL)
+    node2->prev = node1;
+    node2->next = tail;
+
+    tail->prev = node2;
+
+    Node * frontPtr = head->next;
+
+    while (frontPtr != tail)
     {
-        cout << curPtr->data << endl;
-        curPtr = curPtr->next;
+        cout << frontPtr->data << endl;
+        frontPtr = frontPtr->next;
     }
+
+    Node* backPtr = tail->prev;
+
+    while (backPtr != head)
+    {
+        cout << backPtr->data << endl;
+        backPtr = backPtr->prev;
+    }
+
+  
 
     return 0;
 }
