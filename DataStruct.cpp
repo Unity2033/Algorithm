@@ -5,51 +5,61 @@ using namespace std;
 struct Node
 {
     int data;
-    Node * next;
-    Node * prev;
+    Node* next;
+    Node* prev;
 };
+
+// 추가 함수
+void Insert(Node * target, int data)
+{
+    Node * newNode = new Node;
+    newNode->data = data;
+
+    newNode->prev = target;
+    newNode->next = target->next;
+
+    newNode->next->prev = newNode;
+    target->next = newNode;
+}
+
+// 삭제 함수
+void Remove(Node* target)
+{
+
+}
+
+// 앞에서 출력하는 함수
+void FrontCircuit(Node* target)
+{
+
+}
+
+// 뒤에서 출력하는 함수
+void BackCircuit(Node* target)
+{
+
+}
+
+Node * head;
+Node * tail;
+
+int a;
 
 int main()
 {
-    Node * head = new Node;
-    head->prev = NULL;
+    cout << a << endl;
 
-    Node * tail = new Node;
+    head = new Node;
+    tail = new Node;
+
+    head->prev = NULL;
     tail->next = NULL;
 
-    Node * node1 = new Node;
-    node1->data = 1000;
-    Node * node2 = new Node;
-    node2->data = 2000;
+    head->next = tail;
+    tail->prev = head;
 
-    head->next = node1;
-
-    node1->prev = head;
-    node1->next = node2;
-
-    node2->prev = node1;
-    node2->next = tail;
-
-    tail->prev = node2;
-
-    Node * frontPtr = head->next;
-
-    while (frontPtr != tail)
-    {
-        cout << frontPtr->data << endl;
-        frontPtr = frontPtr->next;
-    }
-
-    Node* backPtr = tail->prev;
-
-    while (backPtr != head)
-    {
-        cout << backPtr->data << endl;
-        backPtr = backPtr->prev;
-    }
+    Insert(head, 1000);
 
   
-
     return 0;
 }
-
