@@ -2,64 +2,39 @@
 
 using namespace std;
 
-struct Node
-{
-    int data;
-    Node* next;
-    Node* prev;
-};
-
-// 추가 함수
-void Insert(Node * target, int data)
-{
-    Node * newNode = new Node;
-    newNode->data = data;
-
-    newNode->prev = target;
-    newNode->next = target->next;
-
-    newNode->next->prev = newNode;
-    target->next = newNode;
-}
-
-// 삭제 함수
-void Remove(Node* target)
-{
-
-}
-
-// 앞에서 출력하는 함수
-void FrontCircuit(Node* target)
-{
-
-}
-
-// 뒤에서 출력하는 함수
-void BackCircuit(Node* target)
-{
-
-}
-
-Node * head;
-Node * tail;
-
-int a;
-
 int main()
 {
-    cout << a << endl;
+    // 거품 정렬 
+    // 서로 인접한 두 원소의 대소를 비교하여, 조건에 맞지 않다면
+    // 자리를 교환하여 정렬하는 알고리즘입니다.
 
-    head = new Node;
-    tail = new Node;
+    // 거품 정렬 시간 복잡도
+    // O(n^2)
 
-    head->prev = NULL;
-    tail->next = NULL;
+    int array[5] = { 7, 52, 1, 11, 3 };
 
-    head->next = tail;
-    tail->prev = head;
+    // [7][52][1][11][3]
 
-    Insert(head, 1000);
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; 4 - i; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                swap(array[j], array[j + 1]);
+            }
+        }
+    }
 
-  
+    for (const int& element : array)
+    {
+        cout << element << endl;
+    }
+
+    // 두 값을 바꾸는 함수
+    // swap(array[0], array[1]);
+          
+
+
     return 0;
 }
