@@ -1,17 +1,26 @@
+#define SIZE 4 
 #include <iostream>
 
 using namespace std;
 
-#define SIZE 5
-
-class Queue
+class CircleQueue
 {
-private:
-    int front = -1;
-    int rear = -1;
-
-public :
-    int buffer[SIZE] = {0,};
+private :
+    int front = SIZE - 1;
+    int rear = SIZE - 1;
+    int buffer[SIZE] = { 0, };
+public:
+    bool IsFull()
+    {
+        if (front == (rear + 1) % SIZE)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     bool Empty()
     {
@@ -25,64 +34,50 @@ public :
         }
     }
 
-    bool IsFull()
-    {
-        if (rear == SIZE-1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     void Enqueue(int data)
     {
-        // 큐가 다 차있으면 데이터를 넣을 수 없도록 처리
         if (IsFull() == true)
         {
-            cout << "Queue Is Full" << endl;
+            cout << "CircleQueue is Full" << endl;
         }
         else
         {
-            buffer[++rear] = data;
+            rear = (rear + 1) % SIZE;
+            buffer[rear] = data;
         }
     }
 
     int Dequeue()
     {
-        // 큐가 비어있으면 데이터를 뺄 수 없도록 처리
         if (Empty() == true)
         {
-            cout << "Queue is Empty" << endl;
+            cout << "CircleQueue is Empty" << endl;
         }
         else
         {
-            int temp = buffer[++front];
-            buffer[front] = NULL;
-            return temp; 
+            front = (front + 1) % SIZE;
+            int temp = buffer[front];
+
+            buffer[front] = 0;
+            return temp;
         }
     }
+    
 };
 
 int main()
 {
-    Queue queue;
+    CircleQueue circleQueue;
+    circleQueue.Enqueue(10);
+    circleQueue.Enqueue(20);
+    circleQueue.Enqueue(30);
 
-    queue.Enqueue(10);
-    queue.Enqueue(20);
-    queue.Enqueue(30);
-    queue.Enqueue(40);
-    queue.Enqueue(50);
-
-    while (!queue.Empty())
+    while (!circleQueue.Empty())
     {
-        cout << queue.Dequeue() << endl;
+        cout << circleQueue.Dequeue() << endl;
     }
 
-    queue.Dequeue();
-
+    circleQueue.Dequeue();
 
     return 0;
 }
