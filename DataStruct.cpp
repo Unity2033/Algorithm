@@ -1,18 +1,20 @@
-#define SIZE 4 
 #include <iostream>
+#define SIZE 4
 
 using namespace std;
 
-class CircleQueue
+template <class T>
+class Stack
 {
 private :
-    int front = SIZE - 1;
-    int rear = SIZE - 1;
-    int buffer[SIZE] = { 0, };
+    int top = -1;
+    T buffer[SIZE] = { 0, };
+
 public:
+
     bool IsFull()
     {
-        if (front == (rear + 1) % SIZE)
+        if (SIZE - 1 == top)
         {
             return true;
         }
@@ -24,7 +26,7 @@ public:
 
     bool Empty()
     {
-        if (front == rear)
+        if (top == -1)
         {
             return true;
         }
@@ -34,50 +36,47 @@ public:
         }
     }
 
-    void Enqueue(int data)
+    void Push(int data)
     {
         if (IsFull() == true)
         {
-            cout << "CircleQueue is Full" << endl;
+            cout << "Stack is Full" << endl;
         }
         else
         {
-            rear = (rear + 1) % SIZE;
-            buffer[rear] = data;
+            buffer[++top] = data;
         }
     }
 
-    int Dequeue()
+    T Pop()
     {
         if (Empty() == true)
         {
-            cout << "CircleQueue is Empty" << endl;
+            cout << "Stack is Empty" << endl;
         }
         else
         {
-            front = (front + 1) % SIZE;
-            int temp = buffer[front];
-
-            buffer[front] = 0;
-            return temp;
+            return buffer[top--];
         }
     }
-    
 };
+
 
 int main()
 {
-    CircleQueue circleQueue;
-    circleQueue.Enqueue(10);
-    circleQueue.Enqueue(20);
-    circleQueue.Enqueue(30);
+    Stack<int> stack;
 
-    while (!circleQueue.Empty())
+    stack.Push(10);
+    stack.Push(20);
+    stack.Push(30);
+    stack.Push(40);
+    
+    while (!stack.Empty())
     {
-        cout << circleQueue.Dequeue() << endl;
+        cout << stack.Pop() << endl;
     }
 
-    circleQueue.Dequeue();
+    stack.Pop();
 
     return 0;
 }
