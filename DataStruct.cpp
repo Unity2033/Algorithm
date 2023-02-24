@@ -1,82 +1,35 @@
 #include <iostream>
-#define SIZE 4
 
 using namespace std;
-
-template <class T>
-class Stack
-{
-private :
-    int top = -1;
-    T buffer[SIZE] = { 0, };
-
-public:
-
-    bool IsFull()
-    {
-        if (SIZE - 1 == top)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    bool Empty()
-    {
-        if (top == -1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    void Push(int data)
-    {
-        if (IsFull() == true)
-        {
-            cout << "Stack is Full" << endl;
-        }
-        else
-        {
-            buffer[++top] = data;
-        }
-    }
-
-    T Pop()
-    {
-        if (Empty() == true)
-        {
-            cout << "Stack is Empty" << endl;
-        }
-        else
-        {
-            return buffer[top--];
-        }
-    }
-};
 
 
 int main()
 {
-    Stack<int> stack;
+    // 삽입 정렬
+    // 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬된
+    // 배열과 비교하여, 자신의 위치를 찾아 삽입하는 정렬입니다.
+  
+    int array[5] = { 5, 3, 7, 1, 2 };
+    int key = 0;
+    int j = 0;
 
-    stack.Push(10);
-    stack.Push(20);
-    stack.Push(30);
-    stack.Push(40);
-    
-    while (!stack.Empty())
+    for (int i = 1; i < 5; i++)
     {
-        cout << stack.Pop() << endl;
+        key = array[i];
+
+        for (j = i - 1; j >= 0 && array[j] > key; j--)
+        {
+            array[j + 1] = array[j];
+        }
+
+        array[j + 1] = key;
     }
 
-    stack.Pop();
+    for (const int & element : array)
+    {
+        cout << element << endl;
+    }
+
 
     return 0;
 }
