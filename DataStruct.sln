@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircleQueue", "CircleQueue\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stack", "..\Stack\Stack.vcxproj", "{5976F311-686D-4782-A24B-E8A9FC69DBDF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InsertSort", "..\InsertSort\InsertSort.vcxproj", "{AE628AD6-BC0F-48AA-B184-CD7429639B91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{5976F311-686D-4782-A24B-E8A9FC69DBDF}.Release|x64.Build.0 = Release|x64
 		{5976F311-686D-4782-A24B-E8A9FC69DBDF}.Release|x86.ActiveCfg = Release|Win32
 		{5976F311-686D-4782-A24B-E8A9FC69DBDF}.Release|x86.Build.0 = Release|Win32
+		{AE628AD6-BC0F-48AA-B184-CD7429639B91}.Debug|x64.ActiveCfg = Debug|x64
+		{AE628AD6-BC0F-48AA-B184-CD7429639B91}.Debug|x64.Build.0 = Debug|x64
+		{AE628AD6-BC0F-48AA-B184-CD7429639B91}.Debug|x86.ActiveCfg = Debug|Win32
+		{AE628AD6-BC0F-48AA-B184-CD7429639B91}.Debug|x86.Build.0 = Debug|Win32
+		{AE628AD6-BC0F-48AA-B184-CD7429639B91}.Release|x64.ActiveCfg = Release|x64
+		{AE628AD6-BC0F-48AA-B184-CD7429639B91}.Release|x64.Build.0 = Release|x64
+		{AE628AD6-BC0F-48AA-B184-CD7429639B91}.Release|x86.ActiveCfg = Release|Win32
+		{AE628AD6-BC0F-48AA-B184-CD7429639B91}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
