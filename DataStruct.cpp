@@ -1,42 +1,39 @@
 #include <iostream>
 
-#define SIZE 10
+#define SIZE 8
 using namespace std;
+
+int heapArray[SIZE];
+int index = 0;
+
+void Insert(int data)
+{
+    if(index == )
+
+    heapArray[++index] = data;
+}
 
 int main()
 {
-    // 계수 정렬
-    /*
-    // 데이터의 값을 직접 비교하지 않고, 단순하게 각 숫자가
-    // 몇 개 있는지 갯수를 세어 저장한 다음 정렬하는 알고리즘입니다.
+    // 자료구조 (힙)
+    // 최댓값과 최솟값을 찾아내는 연산을
+    // 빠르게 수행하기 위해 고안된 완전 이진트리를
+    // 기반으로 한 자료구조입니다.
 
-    int array[5] = { 0, };
-    int item[SIZE] = { 1, 5, 3, 2, 1, 2, 2, 3, 4, 4 };
+    // 부모 노드 접근 공식 : 자식 노드 index / 2
+    // 왼쪽 자식 노드 접근 공식 : 부모 노드 index * 2
+    // 오른쪽 자식 노드 접근 공식 : 부모 노드 index * 2 + 1
 
-    for (int i = 0; i < SIZE; i++)
+    Insert(10);
+    Insert(20);
+    Insert(30);
+    Insert(40);
+    Insert(50);
+
+    for (int i = 1; i <= 5; i++)
     {
-        array[item[i] - 1] += 1;
+        cout << heapArray[i] << endl;
     }
-
-    for (int i = 0; i < 5; i++)
-    {
-        cout << array[i] << endl;
-    }
-    */
-
-    // 대문자로 입력한 문자를 소문자로 바꾸는 알고리즘
-    string content;
-    cin >> content;
-
-    for (int i = 0; i < content.length(); i++)
-    {
-        if (content[i] >= 'A' && content[i] <= 'Z')
-        {
-            content[i] += 32;
-        }
-    }
-
-    cout << content << endl;
 
     return 0;
 }
