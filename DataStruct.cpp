@@ -93,6 +93,5 @@ int main()
         cout << heapArray[i] << endl;
     }
 
-
     return 0;
 }
