@@ -1,97 +1,123 @@
 #include <iostream>
 
-#define SIZE 8
+#define SIZE 5
 using namespace std;
 
-int heapArray[SIZE];
-int index = 0;
-
-void Insert(int data)
+struct Node
 {
-    if (index == SIZE - 1)
+    int key;
+    int value;
+    Node * next;
+};
+
+struct Bucket
+{
+    int size;
+    Node * head;
+};
+
+struct Bucket * bucket = new Bucket[SIZE];
+
+int HashFunction(int key)
+{
+    return key % SIZE;
+}
+
+void Insert(int key, int value)
+{
+    // 1. 노드를 추가합니다.
+    Node * newNode = new Node;
+
+    newNode->key = key;
+    newNode->value = value;
+    newNode->next = NULL; 
+
+    // 2. 해시 인덱스를 구합니다.
+    int hashIndex = HashFunction(key);
+
+    // 3.노드를 해당 Bucket의 인덱스에 연결하는 작업
+    if (bucket[hashIndex].size == 0)
     {
-        cout << "HEAP IS FULL" << endl;
-        return;
+        bucket[hashIndex].size++;
+        bucket[hashIndex].head = newNode;
     }
-
-    heapArray[++index] = data;
-
-    // heapify
-    int child = index;
-    int parent = index / 2;
-
-    while (child > 1)
+    else if (bucket[hashIndex].size > 0)
     {
-        if (heapArray[parent] < heapArray[child])
-        {
-            swap(heapArray[parent], heapArray[child]);
-        }
-
-        child = parent;
-        parent = child / 2;
+        newNode->next = bucket[hashIndex].head;
+        bucket[hashIndex].head = newNode;
+        bucket[hashIndex].size++;
     }
 }
 
-int Delete()
+
+void Remove(int key)
 {
-    int result = heapArray[1];
+    // 1. 해시 인덱스를 구합니다.
+    int hashIndex = HashFunction(key);
 
-    if (index == 0)
+    // 2. 순회용 포인터 선언합니다.
+    Node * currentNode = bucket[hashIndex].head;
+    Node * prevNode = NULL;
+
+    bool check = false;
+
+    // 3. 해당하는 key값을 찾아주세요.
+    while (currentNode != NULL)
     {
-        cout << "Heap is Empty" << endl;
-        return 0;
-    }
-
-    heapArray[1] = heapArray[index];
-    heapArray[index] = NULL;
-
-    index--;
-
-    // heapify
-    int parent = 1;
-
-    while (parent * 2 <= index)
-    {
-        int child = parent * 2;
-
-        if (heapArray[child] < heapArray[child + 1])
+        // 해당하는 키를 찾았다면
+        if (currentNode->key == key)
         {
-            child++;
-        }
+            // 삭제하고 싶은 key가 head라면
+            if (currentNode == bucket[hashIndex].head)
+            {
+                bucket[hashIndex].head = currentNode->next;
+            }
+            else // 삭제하고 싶은 key가 head가 아니라면
+            {
+                prevNode->next = currentNode->next;
+            }
 
-        if (heapArray[child] < heapArray[parent])
-        {
+            bucket[hashIndex].size--;
+            check = true;
+
+            // 해당하는 노드를 삭제합니다.
+            delete currentNode;
+
+            // 해당 노드를 삭제하고 반복문 빠져나와야 합니다.
             break;
         }
 
-        swap(heapArray[child], heapArray[parent]);
-        parent = child;
+        prevNode = currentNode;
+        currentNode = currentNode->next;
     }
 
-    return result;
+    if (check == true)
+    {
+        cout << "KEY : " << key << "가 삭제되었습니다." << endl;
+    }
+    else
+    {
+        cout << "KEY가 존재하지 않아 삭제가 진행되지 않습니다." << endl;
+    }
 }
 
 int main()
 {
-    // 자료구조 (힙)
-    // 최댓값과 최솟값을 찾아내는 연산을
-    // 빠르게 수행하기 위해 고안된 완전 이진트리를
-    // 기반으로 한 자료구조입니다.
+    // 해시 테이블
+    // 해시함수를 통해서 변환된 값을 index로 삼아서
+    // key와 value 형태로 저장하는 자료구조입니다.
 
-    // 부모 노드 접근 공식 : 자식 노드 index / 2
-    // 왼쪽 자식 노드 접근 공식 : 부모 노드 index * 2
-    // 오른쪽 자식 노드 접근 공식 : 부모 노드 index * 2 + 1
-
-    Insert(10);
-    Insert(20);
-    Insert(30);
-
-    Delete();
-
-    for (int i = 1; i <= index; i++)
+    for (int i = 0; i < SIZE; i++)
     {
-        cout << heapArray[i] << endl;
+        bucket[i].head = NULL;
+        bucket[i].size = 0;
     }
+
+    Insert(10, 5);
+    Insert(11, 77);
+
+    Remove(11);
+
 
     return 0;
 }
