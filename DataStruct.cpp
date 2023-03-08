@@ -1,123 +1,64 @@
 #include <iostream>
 
-#define SIZE 5
 using namespace std;
 
-struct Node
+
+int arr[10] = { 4,1,2,3,9,7,8,6,10,5 };
+
+void QuickSort(int data [], int start, int end)
 {
-    int key;
-    int value;
-    Node * next;
-};
+    // left, right, pivot 변수
+    int pivot = start;
+    int left = pivot + 1;
+    int right = end;
 
-struct Bucket
-{
-    int size;
-    Node * head;
-};
-
-struct Bucket * bucket = new Bucket[SIZE];
-
-int HashFunction(int key)
-{
-    return key % SIZE;
-}
-
-void Insert(int key, int value)
-{
-    // 1. 노드를 추가합니다.
-    Node * newNode = new Node;
-
-    newNode->key = key;
-    newNode->value = value;
-    newNode->next = NULL; 
-
-    // 2. 해시 인덱스를 구합니다.
-    int hashIndex = HashFunction(key);
-
-    // 3.노드를 해당 Bucket의 인덱스에 연결하는 작업
-    if (bucket[hashIndex].size == 0)
+    while (left <= right)
     {
-        bucket[hashIndex].size++;
-        bucket[hashIndex].head = newNode;
-    }
-    else if (bucket[hashIndex].size > 0)
-    {
-        newNode->next = bucket[hashIndex].head;
-        bucket[hashIndex].head = newNode;
-        bucket[hashIndex].size++;
-    }
-}
-
-
-void Remove(int key)
-{
-    // 1. 해시 인덱스를 구합니다.
-    int hashIndex = HashFunction(key);
-
-    // 2. 순회용 포인터 선언합니다.
-    Node * currentNode = bucket[hashIndex].head;
-    Node * prevNode = NULL;
-
-    bool check = false;
-
-    // 3. 해당하는 key값을 찾아주세요.
-    while (currentNode != NULL)
-    {
-        // 해당하는 키를 찾았다면
-        if (currentNode->key == key)
+        // left가 end보다 작거나 같다면 반복
+        // 왼쪽에 있는 left 변수를 pivot과 비교합니다.
+        while (left <= end && arr[left] < arr[pivot])
         {
-            // 삭제하고 싶은 key가 head라면
-            if (currentNode == bucket[hashIndex].head)
-            {
-                bucket[hashIndex].head = currentNode->next;
-            }
-            else // 삭제하고 싶은 key가 head가 아니라면
-            {
-                prevNode->next = currentNode->next;
-            }
-
-            bucket[hashIndex].size--;
-            check = true;
-
-            // 해당하는 노드를 삭제합니다.
-            delete currentNode;
-
-            // 해당 노드를 삭제하고 반복문 빠져나와야 합니다.
-            break;
+            left++;
         }
 
-        prevNode = currentNode;
-        currentNode = currentNode->next;
+        // right가 start보다 크다면
+        // 오른쪽에 있는 right 변수를 pivot과 비교합니다.
+        while (right > start && arr[right] > arr[pivot])
+        {
+            right--;
+        }
+
+        // if 왼쪽과 오른쪽이 엇갈렸을 때
+        if (left > right)
+        {
+            swap(arr[pivot], arr[right]);
+        }
+        // else right와 left의 값을 교환합니다.
+        else
+        {
+            swap(arr[right], arr[left]);
+        }
     }
 
-    if (check == true)
-    {
-        cout << "KEY : " << key << "가 삭제되었습니다." << endl;
-    }
-    else
-    {
-        cout << "KEY가 존재하지 않아 삭제가 진행되지 않습니다." << endl;
-    }
+    // 분할 정복
+    
+
 }
 
 int main()
 {
-    // 해시 테이블
-    // 해시함수를 통해서 변환된 값을 index로 삼아서
-    // key와 value 형태로 저장하는 자료구조입니다.
+    // 기점이 되는 키를 기준으로 작거나 같은 값을
+    // 지닌 데이터는 앞으로 이동하고 큰 값을 지닌
+    // 데이터는 뒤로 이동합니다.
 
-    for (int i = 0; i < SIZE; i++)
+    // 그리고 작은 값과 큰 값을 분리하면서 정렬하는 알고리즘입니다.
+  
+    QuickSort(arr, 0, 9);
+
+    for (int i = 0; i < 10; i++)
     {
-        bucket[i].head = NULL;
-        bucket[i].size = 0;
+        cout << arr[i] << endl;
     }
-
-    Insert(10, 5);
-    Insert(11, 77);
-
-    Remove(11);
-
 
     return 0;
 }
