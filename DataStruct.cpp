@@ -4,10 +4,12 @@ using namespace std;
 
 int container[8] = { 5, 3, 1, 2, 4, 7, 6, 8 };
 
+
+
 void MergeSort(int data [], int start, int middle, int end)
 {
-    // left º¯¼ö, right º¯¼ö
-    // Á¤·Ä ½ÃÅ³ ¹è¿­ÀÇ ÀÎµ¦½º¸¦ Áõ°¡½ÃÅ°´Â º¯¼ö (temp)
+    // left ë³€?? right ë³€??
+    // ?•ë ¬ ?œí‚¬ ë°°ì—´???¸ë±?¤ë? ì¦ê??œí‚¤??ë³€??(temp)
     int left = start;
     int right = middle + 1;
     int temp = start;
@@ -24,7 +26,7 @@ void MergeSort(int data [], int start, int middle, int end)
         }
     }
 
-    // ³²¾Æ ÀÖ´Â ¹è¿­ ¼ø¼­´ë·Î ³Ö¾îÁÖ±â
+    // ?¨ì•„ ?ˆëŠ” ë°°ì—´ ?œì„œ?€ë¡??£ì–´ì£¼ê¸°
     if (left > middle)
     {
         for (int x = right; x <= end; x++)
@@ -40,7 +42,7 @@ void MergeSort(int data [], int start, int middle, int end)
         }
     }
 
-    // Á¤·ÄµÈ ¹è¿­¿¡ µ¥ÀÌÅÍ¸¦ »ðÀÔ´Ï´Ù.
+    // ?•ë ¬??ë°°ì—´???°ì´?°ë? ?½ìž…?ˆë‹¤.
     for (int i = start; i <= end; i++)
     {
         data[i] = container[i];
@@ -51,23 +53,23 @@ void Division(int data [], int left, int right)
 {
     if (left < right)
     {
-        // middle º¯¼ö ¼±¾ð
+        // middle ë³€??? ì–¸
         int middle = (left + right) / 2;
 
-        // ¿ÞÂÊ ºÐÇÒ Àç±Í ÇÔ¼ö
+        // ?¼ìª½ ë¶„í•  ?¬ê? ?¨ìˆ˜
         Division(data, left, middle);
 
-        // ¿À¸¥ÂÊ ºÐÇÒ Àç±Í ÇÔ¼ö
+        // ?¤ë¥¸ìª?ë¶„í•  ?¬ê? ?¨ìˆ˜
         Division(data, middle + 1, right);
 
-        // º´ÇÕ    
+        // ë³‘í•©    
         MergeSort(data, left, middle, right);
     }
 }
 
 int main()
 {
-    // ¹®ÀÚ¿­ µÚÁý±â
+    // ë¬¸ìž???¤ì§‘ê¸?
     /*
     string content;
 
@@ -87,6 +89,7 @@ int main()
     // ºÎºÐ ¸®½ºÆ®¸¦ ÇÕÇÏ¿© ÀüÃ¼°¡ Á¤·ÄµÈ ¸®½ºÆ®°¡ µÇµµ·Ï 
     // Á¤·ÄÇÏ´Â ¾Ë°í¸®ÁòÀÔ´Ï´Ù.
     Division(container, 0, 7);
+
 
     for (int i = 0; i < 8; i++)
     {
