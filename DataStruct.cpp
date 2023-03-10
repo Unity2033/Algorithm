@@ -2,12 +2,12 @@
 
 using namespace std;
 
-int arr[8] = { 5, 3, 1, 2, 4, 7, 6, 8 };
+int count[8] = { 5, 3, 1, 2, 4, 7, 6, 8 };
 
 void MergeSort(int data [], int start, int middle, int end)
 {
-    // left º¯¼ö, right º¯¼ö
-    // Á¤·Ä ½ÃÅ³ ¹è¿­ÀÇ ÀÎµ¦½º¸¦ Áõ°¡½ÃÅ°´Â º¯¼ö (temp)
+    // left ë³€ìˆ˜, right ë³€ìˆ˜
+    // ì •ë ¬ ì‹œí‚¬ ë°°ì—´ì˜ ì¸ë±ìŠ¤ë¥¼ ì¦ê°€ì‹œí‚¤ëŠ” ë³€ìˆ˜ (temp)
     int left = start;
     int right = middle + 1;
     int temp = start;
@@ -24,7 +24,7 @@ void MergeSort(int data [], int start, int middle, int end)
         }
     }
 
-    // ³²¾Æ ÀÖ´Â ¹è¿­ ¼ø¼­´ë·Î ³Ö¾îÁÖ±â
+    // ë‚¨ì•„ ìžˆëŠ” ë°°ì—´ ìˆœì„œëŒ€ë¡œ ë„£ì–´ì£¼ê¸°
     if (left > middle)
     {
         for (int x = right; x <= end; x++)
@@ -40,7 +40,7 @@ void MergeSort(int data [], int start, int middle, int end)
         }
     }
 
-    // Á¤·ÄµÈ ¹è¿­¿¡ µ¥ÀÌÅÍ¸¦ »ðÀÔ´Ï´Ù.
+    // ì •ë ¬ëœ ë°°ì—´ì— ë°ì´í„°ë¥¼ ì‚½ìž…ë‹ˆë‹¤.
     for (int i = start; i <= end; i++)
     {
         data[i] = arr[i];
@@ -51,23 +51,23 @@ void Division(int data [], int left, int right)
 {
     if (left < right)
     {
-        // middle º¯¼ö ¼±¾ð
+        // middle ë³€ìˆ˜ ì„ ì–¸
         int middle = (left + right) / 2;
 
-        // ¿ÞÂÊ ºÐÇÒ Àç±Í ÇÔ¼ö
+        // ì™¼ìª½ ë¶„í•  ìž¬ê·€ í•¨ìˆ˜
         Division(data, left, middle);
 
-        // ¿À¸¥ÂÊ ºÐÇÒ Àç±Í ÇÔ¼ö
+        // ì˜¤ë¥¸ìª½ ë¶„í•  ìž¬ê·€ í•¨ìˆ˜
         Division(data, middle + 1, right);
 
-        // º´ÇÕ    
+        // ë³‘í•©    
         MergeSort(data, left, middle, right);
     }
 }
 
 int main()
 {
-    // ¹®ÀÚ¿­ µÚÁý±â
+    // ë¬¸ìžì—´ ë’¤ì§‘ê¸°
     /*
     string content;
 
@@ -81,11 +81,11 @@ int main()
     cout << content << endl;
     */
 
-    // º´ÇÕ Á¤·Ä
-    // ÇÏ³ªÀÇ ¸®½ºÆ®¸¦ µÎ °³ÀÇ ±ÕµîÇÑ Å©±â·Î ºÐÇÒÇÏ°í
-    // ºÐÇÒµÈ ºÎºÐ ¸®½ºÆ®¸¦ Á¤·ÄÇÑ ´ÙÀ½, µÎ °³ÀÇ Á¤·ÄµÈ
-    // ºÎºÐ ¸®½ºÆ®¸¦ ÇÕÇÏ¿© ÀüÃ¼°¡ Á¤·ÄµÈ ¸®½ºÆ®°¡ µÇµµ·Ï 
-    // Á¤·ÄÇÏ´Â ¾Ë°í¸®ÁòÀÔ´Ï´Ù.
+    // ë³‘í•© ì •ë ¬
+    // í•˜ë‚˜ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ë‘ ê°œì˜ ê· ë“±í•œ í¬ê¸°ë¡œ ë¶„í• í•˜ê³ 
+    // ë¶„í• ëœ ë¶€ë¶„ ë¦¬ìŠ¤íŠ¸ë¥¼ ì •ë ¬í•œ ë‹¤ìŒ, ë‘ ê°œì˜ ì •ë ¬ëœ
+    // ë¶€ë¶„ ë¦¬ìŠ¤íŠ¸ë¥¼ í•©í•˜ì—¬ ì „ì²´ê°€ ì •ë ¬ëœ ë¦¬ìŠ¤íŠ¸ê°€ ë˜ë„ë¡ 
+    // ì •ë ¬í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜ìž…ë‹ˆë‹¤.
     Division(arr, 0, 7);
 
     for (int i = 0; i < 8; i++)
