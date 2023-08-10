@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="(2023.8.9) 가변 인수.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
