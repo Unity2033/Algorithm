@@ -23,5 +23,8 @@
     <ClInclude Include="(2023.8.9) 가변 인수.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="(2023.8.10) 함수 포인터.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
