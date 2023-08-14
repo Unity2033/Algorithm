@@ -26,5 +26,8 @@
     <ClInclude Include="(2023.8.10) 함수 포인터.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="(2023.8.11) 랜덤 함수.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

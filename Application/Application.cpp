@@ -1,85 +1,65 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <conio.h>
+#include <windows.h>
 
-int life;
-int computer;
-int answer;
+#define UP 72
+#define LEFT 75
+#define RIGHT 77
+#define DOWN 80
 
-void Init()
+void gotoXY(int x, int y)
 {
-	srand(time(NULL));
+	// x, y 좌표 설정
+	COORD position = {x, y};
 
-	life = 5;
-	computer = rand() % 50 + 1;
+	// 커서 이동
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
 }
-
-void Update()
-{
-	printf("컴퓨터가 가지고 있는 값 : ");
-	scanf_s("%d", &answer);
-}
-
-void Render()
-{
-	if (computer == answer)
-	{
-		printf("\n게임에서 승리하였습니다.\n");
-		exit(1);
-	}
-	else if (computer > answer)
-	{
-		printf("\n컴퓨터가 가지고 있는 값보다 작습니다.\n");
-		life--;
-	}
-	else if (computer < answer)
-	{
-		printf("\n컴퓨터가 가지고 있는 값보다 큽니다.\n");
-		life--;
-	}
-
-	if (life <= 0)
-	{
-		printf("\n게임에서 패배하였습니다.\n");
-	}
-}
-
 
 
 int main()
 {
-#pragma region 랜덤 함수
-	// 0 ~ 32767 사이의 난수 값을 반환하는 함수입니다.
+#pragma region _kbhit() 함수
 
-	//	int seed = 0;
+	//	char key = 0;
+	//	int x = 5;
+	//	int y = 5;
 	//	
-	//	// 1970년 1월 1일 ~
-	//	srand(time(NULL));
+	//	// Update( )
+	//	while (1)
+	//	{
+	//		gotoXY(x, y);
+	//		printf("★");
 	//	
-	//	for (int i = 0; i < 10; i++)
-	//	{ 
-	//		seed = rand() % 10 + 1;
-	//		printf("seed의 값 : %d \n", seed);
+	//		if (_kbhit()) // 키보드 입력을 확인하는 함수
+	//		{
+	//			key = _getch();
+	//	
+	//			if (key == -32)
+	//			{
+	//				key = _getch();
+	//			}
+	//	
+	//			switch (key)
+	//			{
+	//			case UP : if (y <= 0) break;
+	//				    y--;
+	//				break;
+	//			case LEFT : if (x <= 0) break;
+	//				    x--;
+	//				break;
+	//			case RIGHT : x++;
+	//				break;
+	//			case DOWN : y++;
+	//				break;
+	//			}
+	//	
+	//			// 스크린을 지우는 함수
+	//			system("cls");
+	//		}
 	//	}
 #pragma endregion
-
-#pragma region UP-DOWN 게임
-
-	// 게임 데이터 초기화
-	Init();
-
-	while (life > 0)
-	{
-		// 게임 업데이트 함수
-		Update();
-
-		// 게임 렌더링 함수
-		Render();
-	}
-
-
-#pragma endregion
-
 
 	return 0;
 }
