@@ -32,5 +32,8 @@
     <ClInclude Include="(2023.8.14) 키 입력 함수.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="(2023.8.16) 파일 입출력.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
