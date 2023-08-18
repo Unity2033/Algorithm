@@ -35,5 +35,8 @@
     <ClInclude Include="(2023.8.16) 파일 입출력.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="(2023.8.17) 더블 버퍼링.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
