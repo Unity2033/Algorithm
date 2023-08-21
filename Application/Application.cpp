@@ -1,8 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 
-#define LEFT 75
-#define RIGHT 77
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -10,18 +7,22 @@
 #include <conio.h>
 #include <windows.h>
 
+#define UP 72
+#define LEFT 75
+#define RIGHT 77
+#define DOWN 80
+
+#define WIDTH 11
+#define HEIGHT 11
+
 struct Player
 {
-	int x, y;
-	const char * shape;
+	int x;
+	int y;
+	const char* shape;
 };
 
-struct Enemy
-{
-	int x, y;
-	const char * shape;
-};
-
+// 좌표 이동 함수
 void gotoXY(int x, int y)
 {
 	// x, y 좌표 설정
@@ -31,7 +32,54 @@ void gotoXY(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
 }
 
-void Keyboard(Player * player)
+// 미로 맵 데이터
+char maze[WIDTH][HEIGHT];
+
+ // 미로 맵 생성
+void CreateMaze()
+{
+	// 0 : 빈 공간 ("  ")	 
+	// 1 : 벽      ("■")
+	// 2 : 탈출구  ("◎")
+
+	strcpy(maze[0],  "111111111");
+	strcpy(maze[1],  "100111111");
+	strcpy(maze[2],  "110001111");
+	strcpy(maze[3],  "111101111");
+	strcpy(maze[4],  "111101011");
+	strcpy(maze[5],  "111100011");
+	strcpy(maze[6],  "111111011");
+	strcpy(maze[7],  "110000001");
+	strcpy(maze[8],  "110111011");
+	strcpy(maze[9],  "110100011");
+	strcpy(maze[10], "111121111");
+}
+
+void Renderer()
+{
+	for (int i = 0; i < WIDTH; i++)
+	{
+		for (int j = 0; j < HEIGHT; j++)
+		{
+			if (maze[i][j] == '0')
+			{
+				printf("  ");
+			}
+			else if (maze[i][j] == '1')
+			{
+				printf("■");
+			}
+			else if (maze[i][j] == '2')
+			{
+				printf("◎");
+			}
+		}
+
+		printf("\n");
+	}
+}
+
+void KeyBoard(char map[WIDTH][HEIGHT], Player * player)
 {
 	char key = 0;
 
@@ -46,107 +94,50 @@ void Keyboard(Player * player)
 
 		switch (key)
 		{
-		case LEFT:	if (player->x <= 0) return;
-			player->x -= 2;
+			case UP : if (map[player->y - 1][player->x / 2] != '1')
+			{
+				player->y--;
+			}
 			break;
-		case RIGHT:	if (player->x >= 28)return;
-			player->x += 2;
+
+			case LEFT : if (map[player->y][player->x / 2 - 1] != '1')
+			{
+				player->x -= 2;
+			}
+			break;
+
+			case RIGHT : if (map[player->y][player->x / 2 + 1] != '1')
+			{
+				player->x += 2;
+			}
+			break;
+
+			case DOWN :	if (map[player->y + 1][player->x / 2] != '1')
+			{
+				player->y++;
+			}
 			break;
 		}
 	}
-
-}
-
-int RandomX()
-{
-	srand(time(NULL));
-
-	int x = rand() % 31;
-
-	if (x % 2 == 1)
-	{
-		x += 1;
-	}
-
-	return x;
 }
 
 int main()
 {
-#pragma region 문자열 관련 함수
+	Player player = {2,1,"★"};
 
-	// 문자열 길이 함수
-	/*
-	const char* name = "James";
-	int result = strlen(name);
-	printf("result의 값 : %d", result);
-	*/
-
-	// 문자열 연결 함수
-	/*
-	char firstArr[20] = "First";
-	char secondArr[] = "Second";
-
-    strcat(firstArr, secondArr);
-
-	printf("firstArr의 값 : %s\n", firstArr);
-	*/
-
-	// 문자열 복사 함수
-	/*
-	char a[10] = { "String" };
-	char b[10];
-
-	// 첫 번째 매개변수 : 복사받을 문자 배열
-	// 두 번째 매개변수 : 복사할 문자 배열
-	strcpy(b, a);
-
-	printf("a의 문자열 : %s\n", a);
-	printf("b의 문자열 : %s\n", b);
-	*/
-
-	// 문자열 비교 함수
-	/*
-	char firstA[] = { "ABB" };
-	char SecondB[] = { "ABC" };
-
-	// 서로 같으면 "0"
-	// 앞 쪽에 있는 값이 크면 "1"
-	// 뒤 쪽에 있는 값이 크면 "-1"
-
-	printf("두 문자열을 비교한 결과 : %d\n", strcmp(firstA, SecondB));
-	*/
-#pragma endregion
-
-	system("mode con cols=30 lines=25");
-
-	Player player = { 16, 23, "◈" };
-	Enemy enemy = { RandomX(), 0, "♨" };
-
+	CreateMaze();
+	
 	while (1)
 	{
-		Keyboard(&player);
+		Renderer();
 
-		if (enemy.y >= 24)
-		{
-			enemy.y = 0;
-			enemy.x = RandomX();
-	    }
-
-		if (player.x == enemy.x && player.y == enemy.y)
-		{
-			break;
-		}
-
-		gotoXY(enemy.x, enemy.y++);
-		printf("%s", enemy.shape);
+		KeyBoard(maze, &player);
 
 		gotoXY(player.x, player.y);
 		printf("%s", player.shape);
 
 		Sleep(100);
 		system("cls");
-
 	}
 
 	return 0;
