@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{88501d46-b846-4f8a-8aec-dde09aefd4df}</ProjectGuid>
-    <RootNamespace>Application</RootNamespace>
+    <ProjectGuid>{39176bdd-fd1f-4fb0-8a2b-5698f258b79c}</ProjectGuid>
+    <RootNamespace>DataStruct</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,16 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="(2023.8.10) 함수 포인터.h" />
-    <ClInclude Include="(2023.8.11) 랜덤 함수.h" />
-    <ClInclude Include="(2023.8.14) 키 입력 함수.h" />
-    <ClInclude Include="(2023.8.16) 파일 입출력.h" />
-    <ClInclude Include="(2023.8.17) 더블 버퍼링.h" />
-    <ClInclude Include="%282023.8.18%29 문자열 관련 함수.h" />
-    <ClInclude Include="(2023.8.9) 가변 인수.h" />
+    <ClCompile Include="DataStruct.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
