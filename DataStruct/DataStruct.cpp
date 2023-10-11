@@ -4,14 +4,10 @@ using namespace std;
 
 #pragma region 단일 연결 리스트
 
-// 1. 단일 연결 리스트 노드 제작
 
-struct Node
-{
-    int data;
-    Node * next;
-};
 #pragma endregion
+
+
 
 void PushFront(Node * target, int data)
 {
@@ -23,6 +19,16 @@ void PushFront(Node * target, int data)
     target->next = newNode;
 }
 
+void Remove(Node * target)
+{
+    Node * deleteNode = target->next;
+
+    target->next = deleteNode->next;
+
+    delete deleteNode;
+}
+
+
 int main()
 {
     Node * head = new Node;
@@ -31,7 +37,9 @@ int main()
     PushFront(head, 10);
     PushFront(head, 20);
 
-    Node* currentPtr = head->next;
+    Remove(head);
+
+    Node * currentPtr = head->next;
 
     while (currentPtr != nullptr)
     {
