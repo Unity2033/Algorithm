@@ -1,109 +1,46 @@
 #include <iostream>
-#include <Vector>
 
 using namespace std;
 
-#define SIZE 5
-
-#pragma region 연산자 오버로딩
-class Vector2
-{
-private :
-	int x;
-	int y;
-public :
-	Vector2(int x, int y)
-	{
-		this->x = x;
-		this->y = y;
-	}
-
-	Vector2 operator+(const Vector2 & vector2)
-	{
-		Vector2 clone(this->x + vector2.x, this->y + vector2.y);
-									 
-		return clone;
-	}
-
-	Vector2 operator-(const Vector2& vector2)
-	{
-		Vector2 clone(this->x - vector2.x, this->y - vector2.y);
-
-		return clone;
-	}
-
-	Vector2 operator*(const Vector2& vector2)
-	{
-		Vector2 clone(this->x * vector2.x, this->y * vector2.y);
-
-		return clone;
-	}
-
-	Vector2 operator/(const Vector2& vector2)
-	{
-		Vector2 clone(this->x / vector2.x, this->y / vector2.y);
-
-		return clone;
-	}
-		 
-	int GetX()
-	{
-		return x;
-	}
-
-	int GetY()
-	{
-		return y;
-	}
-};
-
-#pragma endregion
-
-
 int main()
 {
-#pragma region 거품 정렬
-	// 서로 인접한 두 원소를 검사하여 정렬하는 알고리즘입니다.
+#pragma region 선택 정렬
+	// 정렬되지 않은 데이터들에 대해 가장 작은 데이터를
+	// 찾아서 가장 앞에 있는 데이터와 교환하는 알고리즘입니다.
 
 	// 시간 복잡도 O(n^2)
 
-	//int bubbleBuffer[SIZE] = { 0,4,3,2,1 };
+	int selectBuffer[] = { 6,2,8,1,0 };
 
-	//for (int i = 0; i < SIZE-1; i++)
-	//{
-	//	for (int j = 0; j < (SIZE - i) - 1; j++)
-	//	{
-	//		if (bubbleBuffer[j] > bubbleBuffer[j + 1])
-	//		{
-	//			swap(bubbleBuffer[j], bubbleBuffer[j+1]);
-	//		}
-	//	}
-	//}
+	int size = sizeof(selectBuffer) / sizeof(int);
 
-	//for (const int & element : bubbleBuffer)
-	//{
-	//	cout << element << " ";
-	//}
-#pragma endregion
+	for (int i = 0; i < size; i++)
+	{
+		int min = selectBuffer[i]; // 6
 
-#pragma region 연산자 오버로딩
-	Vector2 Up(0, 1);
-	Vector2 Right(1, 0);
+		int select = i;
 
-	// clone 객체 (1,1)
-	Vector2 temp = Up + Right;
+		for (int j = i + 1; j < size; j++)
+		{
+			if (min > selectBuffer[j])
+			{
+				min = selectBuffer[j];
+				select = j;
+			}		
+		}
 
-	cout << temp.GetX() << endl;
-	cout << temp.GetY() << endl;
+		std::swap(selectBuffer[i], selectBuffer[select]);
+	}
 
-
-
+	for (int& element : selectBuffer)
+	{
+		cout << element << " ";
+	}
 
 
 #pragma endregion
 
 
 
-		
 }
 

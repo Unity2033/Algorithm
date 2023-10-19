@@ -130,6 +130,7 @@
     <ClCompile Include="DataStruct.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BubbleSort.h" />
     <ClInclude Include="CircleLinkedList.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="SingleLinkedList.h" />
