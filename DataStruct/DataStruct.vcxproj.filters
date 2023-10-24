@@ -41,5 +41,8 @@
     <ClInclude Include="STACK.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LinearQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
