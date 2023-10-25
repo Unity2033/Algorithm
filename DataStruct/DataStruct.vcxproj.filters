@@ -44,5 +44,11 @@
     <ClInclude Include="LinearQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CountSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
