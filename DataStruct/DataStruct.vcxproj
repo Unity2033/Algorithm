@@ -140,6 +140,7 @@
     <ClInclude Include="SelectSort.h" />
     <ClInclude Include="SingleLinkedList.h" />
     <ClInclude Include="STACK.h" />
+    <ClInclude Include="VECTOR.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

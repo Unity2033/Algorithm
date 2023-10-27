@@ -50,5 +50,8 @@
     <ClInclude Include="CircleQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VECTOR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
