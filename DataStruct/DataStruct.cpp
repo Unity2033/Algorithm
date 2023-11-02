@@ -1,18 +1,17 @@
-#include "BinarySearchTree.h"
+#include "MaxHeap.h"
 
 int main()
 {
-	BinarySearchTree<int> bst;
+	MaxHeap<int> maxHeap;
 
-	bst.rootNode = bst.Insert(10, bst.rootNode);
+	maxHeap.Insert(30);
+	maxHeap.Insert(40);
+	maxHeap.Insert(15);
+	maxHeap.Insert(31);
+	maxHeap.Insert(55);
 
-	bst.Insert(5, bst.rootNode);
-	bst.Insert(15, bst.rootNode);
-
-	cout << bst.FindMax(bst.rootNode) << endl;
-
-	bst.Inorder(bst.GetRoot());
-
+	maxHeap.Display();
+	
 	return 0;
 }
 
