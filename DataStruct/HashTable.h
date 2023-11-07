@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -64,11 +65,20 @@ public :
 		}
 	}
 
-	int HashFunction(KEY key)
+	template<typename T>
+	int HashFunction(T key)
+	{
+		int hashIndex = (int)key % SIZE;
+
+		return hashIndex;
+	}
+
+	template<>
+	int HashFunction(std::string key)
 	{
 		int sumValue = 0;
 
-		for (const char & element : key)
+		for (const char& element : key)
 		{
 			sumValue += (int)element;
 		}
@@ -77,7 +87,7 @@ public :
 
 		return hashIndex;
 	}
-	
+
 	Node * CreateNode(KEY key, VALUE value)
 	{
 		Node * newNode = new Node;
@@ -122,6 +132,77 @@ public :
 		
 	}
 
+	void Remove(KEY key)
+	{
+		// 1. 해시 함수를 통해서 값을 받는 임시 변수
+		int hashIndex = HashFunction(key);
+
+		// 2. Node를 탐색할 수 있는 순회용 포인터 변수 선언
+		//    각 Bucket의 Head를 저장합니다.
+		Node * currentNode = bucket[hashIndex].head;
+
+		// 3. 이전 노드를 저장할 수 있는 포인터 변수 선언
+		Node * traceNode = nullptr;
+
+		// 4. currentNode가 nullptr이라고 하면 함수를 종료합니다.
+		if (currentNode == nullptr)
+		{
+			cout << "HashTable is Empty" << endl;
+			return;
+		}
+
+		// 5. currentNode를 이용해서 내가 찾고자 하는 key 값을 찾으면 됩니다.
+		while (currentNode != nullptr)
+		{
+			// currentNode->key 값과 내가 삭제하고 싶은 key값이 같다면
+			if (currentNode->key == key)
+			{
+				// 내가 삭제하고자 하는 key가 head에 있는 노드라면
+				if (currentNode == bucket[hashIndex].head)
+				{
+					bucket[hashIndex].head = currentNode->next;
+				}
+				else
+				{
+					traceNode->next = currentNode->next;
+				}
+
+				// 각 bucket의 카운트를 감소시킵니다.
+				bucket[hashIndex].count--;
+
+				// 해당 메모리를 삭제합니다.
+				delete currentNode;
+
+				return;
+			}
+
+			traceNode = currentNode;
+			currentNode = currentNode->next;
+		}
+
+		cout << "Not key Found" << endl;
+	}
+
+	void Display()
+	{
+		for (int i = 0; i < SIZE; i++)
+		{
+			Node * currentNode = bucket[i].head;
+
+			while (currentNode != nullptr)
+			{
+				cout << "[" << i << "]" << " KEY : " << currentNode->key << " VALUE : " << currentNode->value << " ---> ";
+				currentNode = currentNode->next;
+			}
+
+			cout << endl;
+		}
+	}
+
+	~HashTable()
+	{
+
+	}
 
 };
 
