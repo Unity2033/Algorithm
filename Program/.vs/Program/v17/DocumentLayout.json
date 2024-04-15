@@ -7,6 +7,12 @@
       "RelativeMoniker": "D:0:0:{EEA4A5E4-1C16-4E06-93D7-ABBC26239C77}|Program.vcxproj|solutionrelative:Program.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4BADCD4E-6386-4FBB-9552-A9B01FAF87A7}|..\\Class5th (Dynamic Programming)\\Class5th (Dynamic Programming).vcxproj|C:\\Users\\Administrator\\Desktop\\Algorithm\\Class5th (Dynamic Programming)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{166B1541-F91B-4B2E-82E6-B6FD96D1DB87}|..\\Class4th (Binary Search)\\Class4th (Binary Search).vcxproj|C:\\Users\\Administrator\\Desktop\\Algorithm\\Class4th (Binary Search)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5CF7E7BE-386C-4483-91DF-C390812D9811}|..\\Class3th (Two Pointer)\\Class3th (Two Pointer).vcxproj|C:\\Users\\Administrator\\Desktop\\Algorithm\\Class3th (Two Pointer)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -23,11 +29,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 295,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Source.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class5th (Dynamic Programming)\\Source.cpp",
+              "RelativeDocumentMoniker": "..\\Class5th (Dynamic Programming)\\Source.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class5th (Dynamic Programming)\\Source.cpp",
+              "RelativeToolTip": "..\\Class5th (Dynamic Programming)\\Source.cpp",
+              "ViewState": "AQIAABMAAAAAAAAAAAAUwCUAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-15T12:42:14.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Source.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class4th (Binary Search)\\Source.cpp",
+              "RelativeDocumentMoniker": "..\\Class4th (Binary Search)\\Source.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class4th (Binary Search)\\Source.cpp",
+              "RelativeToolTip": "..\\Class4th (Binary Search)\\Source.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-15T11:29:21.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class3th (Two Pointer)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class3th (Two Pointer)\\Source.cpp",
@@ -39,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class2th (Count Sort)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class2th (Count Sort)\\Source.cpp",
@@ -51,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class1th (Insert Sort)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class1th (Insert Sort)\\Source.cpp",
@@ -69,7 +101,7 @@
               "RelativeDocumentMoniker": "Program.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Program\\Program.cpp",
               "RelativeToolTip": "Program.cpp",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAuwDcAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-09T11:06:09.249Z",
               "EditorCaption": ""
