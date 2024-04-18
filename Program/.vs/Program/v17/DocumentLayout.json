@@ -7,6 +7,9 @@
       "RelativeMoniker": "D:0:0:{EEA4A5E4-1C16-4E06-93D7-ABBC26239C77}|Program.vcxproj|solutionrelative:Program.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FB3818AF-DB13-4EE9-8F1A-FF332D84AC4C}|..\\Class8th (Breadth First Search)\\Class8th (Breadth First Search).vcxproj|C:\\Users\\Administrator\\Desktop\\Algorithm\\Class8th (Breadth First Search)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A7D7D6D4-8A91-4C09-A741-CF29C136C7D3}|..\\Class7th (Depth First Search)\\Class7th (Depth First Search).vcxproj|C:\\Users\\Administrator\\Desktop\\Algorithm\\Class7th (Depth First Search)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -35,11 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 295,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Source.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class8th (Breadth First Search)\\Source.cpp",
+              "RelativeDocumentMoniker": "..\\Class8th (Breadth First Search)\\Source.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class8th (Breadth First Search)\\Source.cpp",
+              "RelativeToolTip": "..\\Class8th (Breadth First Search)\\Source.cpp",
+              "ViewState": "AQIAADEAAAAAAAAAAAAIwFsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-18T12:19:28.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class7th (Depth First Search)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class7th (Depth First Search)\\Source.cpp",
@@ -47,12 +63,11 @@
               "RelativeToolTip": "..\\Class7th (Depth First Search)\\Source.cpp",
               "ViewState": "AQIAADAAAAAAAAAAAAAAwFgAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-17T12:43:05.351Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-17T12:43:05.351Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class6th (Quick Sort)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class6th (Quick Sort)\\Source.cpp",
@@ -60,12 +75,11 @@
               "RelativeToolTip": "..\\Class6th (Quick Sort)\\Source.cpp",
               "ViewState": "AQIAAEgAAAAAAAAAAAAqwFcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-17T11:02:50.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-17T11:02:50.378Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class5th (Dynamic Programming)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class5th (Dynamic Programming)\\Source.cpp",
@@ -77,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class4th (Binary Search)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class4th (Binary Search)\\Source.cpp",
@@ -89,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class3th (Two Pointer)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class3th (Two Pointer)\\Source.cpp",
@@ -101,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class2th (Count Sort)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class2th (Count Sort)\\Source.cpp",
@@ -113,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Class1th (Insert Sort)\\Source.cpp",
               "RelativeDocumentMoniker": "..\\Class1th (Insert Sort)\\Source.cpp",
@@ -131,7 +145,7 @@
               "RelativeDocumentMoniker": "Program.cpp",
               "ToolTip": "C:\\Users\\Administrator\\Desktop\\Algorithm\\Program\\Program.cpp",
               "RelativeToolTip": "Program.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-09T11:06:09.249Z",
               "EditorCaption": ""
