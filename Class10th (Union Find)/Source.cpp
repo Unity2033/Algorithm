@@ -17,7 +17,7 @@ public:
 			parent[i] = i;
 		}
 	}
-	// 2
+
 	int Find(int x)
 	{
 		if (x == parent[x])

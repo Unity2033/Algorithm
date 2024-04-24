@@ -1,82 +1,45 @@
 ﻿#include <iostream>
-#include <algorithm>
-#include <vector>
 
 using namespace std;
 
-class Graph
-{
-private:
-	class Edge
-	{
-	private:
-		int x;
-		int y;
-		int distance;
-	public:
-		Edge(int x, int y, int distance)
-		{
-			this->x = x;
-			this->y = y;
-			this->distance = distance;
-		}
-
-
-
-		bool operator < (const Edge & edge)
-		{
-			return this->distance < edge.distance;
-		}		
-	};
-
-	std::vector <Edge> edgeList;
-
-public:
-
-	void CreateEdge(int x, int y, int distance)
-	{		
-		edgeList.push_back(Edge(x, y, distance));
-	}
-
-	void Sort()
-	{
-		sort(edgeList.begin(), edgeList.end());
-	}
-};
-
 int main()
 {
-#pragma region 신장 트리 (Spanning Tree)
-	// - 그래프의 모든 정점을 포함하면서 사이클이 존재하지 않는 부분 그래프
-	// - 그래프의 모든 정점을 최소 비용으로 연결하는 트리
-	// - 그래프의 정점의 수가 n개일 때, 간선의 수는 n-1개입니다.
+#pragma region 탐욕법 (Greedy)
+	// 최적의 해를 구하는 데에 사용되는 근사적인
+	// 방법으로, 여러 경우 중 하나를 결정해야 할 때마다
+	// 그 순간에 최적이라고 생각되는 것을 선택해 나가는
+	// 방식으로 진행하여 최종적인 해답을 구하는 알고리즘입니다.
 
-	Graph graph;
+	// 1. 탐욕 선택 속성 
+	// 각 단계에서 '최선의 선택'을 했을 때 전체 문제에 대한
+	// 최적의 해를 구할 수 있는 경우입니다.
 
-	graph.CreateEdge(1, 2, 67);
-	graph.CreateEdge(1, 4, 28);
-	graph.CreateEdge(1, 5, 15);
-	graph.CreateEdge(1, 7, 12);
+	// 2. 최적 부분 구조
+	// 전체 문제의 최적의 해가 '부분 문제의 최적의 해로 구성'될
+	// 수 있는 경우입니다.
 
-	graph.CreateEdge(2, 4, 60);
-	graph.CreateEdge(1, 5, 60);
+	// 그리디 알고리즘의 단계
 
-	graph.CreateEdge(3, 5, 22);
-	graph.CreateEdge(3, 6, 33);
+	// 1. 문제의 최적해 구조를 결정합니다.
 
-	graph.CreateEdge(4, 7, 13);
+	// 2. 문제의 구조에 맞게 선택 절차를 정의합니다.
 
-	graph.CreateEdge(5, 6, 42);
-	graph.CreateEdge(5, 7, 73);
+	// 3. 선택 절차에 따라 선택을 수행합니다.
 
-	graph.Sort();
+	// 4. 선택된 해가 문제의 조건을 만족하는지 검사합니다.
+
+	// 5. 조건을 만족하지 않으면 해당 해를 제외합니다.
+
+	// 6. 모든 선택이 완료되면 해답을 검사합니다.
+
+	// 7. 조건을 만족하지 않으면 해답으로 인정되지 않습니다.
 
 
-	// - 최소 비용 신장 트리 (Minimum Spanning Tree, MST)
-	//   : 그래프의 간선들의 가중치 합이 최소인 신장 트리
-		
+
 #pragma endregion
 
+
+	
 
 	return 0;
 }
