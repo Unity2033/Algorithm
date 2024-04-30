@@ -1,6 +1,2 @@
 ﻿  Program.cpp
-C:\Users\Administrator\Desktop\Algorithm\Program\Program.cpp(4,1): warning C4005: 'INFINITY': 매크로 재정의
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(88,1):
-  'INFINITY'의 이전 정의를 참조하십시오.
-  
   Program.vcxproj -> C:\Users\Administrator\Desktop\Algorithm\Program\x64\Debug\Program.exe
